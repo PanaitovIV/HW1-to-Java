@@ -11,18 +11,13 @@ public class Main {
     public static void main(String[] args) {
 
         // Первое задание
-        Random rnd = new Random();
-        int i = rnd.nextInt(0, 2001);
+        int i = methodRandom();
         System.out.print("1. Случайное число от 0 до 2000 > ");
         System.out.print(i);
         System.out.println();
 
         // Второе задание
-        int n = 0;
-        while (i != 1) {
-            i >>= 1;
-            n++;
-        }
+        int n = high_bit_line(i);
         System.out.print("2. Номер старшего значащего бита выпавшего числа > ");
         System.out.print(n);
         System.out.println();
@@ -42,6 +37,18 @@ public class Main {
         System.out.println();
     }
 
+    public static int methodRandom() {
+        return new Random().nextInt(0, 2000);
+    }
+
+    public static int high_bit_line(int i) {
+        int res = 0;
+        while (i != 1) {
+            i >>= 1;
+            res++;
+        }
+        return res;
+    }
 
     public static int[] multiplicity1(int i, int n) {
         int[] m = new int[Short.MAX_VALUE];
